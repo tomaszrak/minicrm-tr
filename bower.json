@@ -1,0 +1,22 @@
+{
+  "name": "miniCRM",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular-route": "~1.4.7"
+  },
+  "devDependencies": {
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.14.3"
+  }
+}

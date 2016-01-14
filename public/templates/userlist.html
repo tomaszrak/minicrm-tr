@@ -1,0 +1,27 @@
+<div ng-controller="listUserCtrl">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Imię</th>
+                <th>Naziwsko</th>
+                <th>login</th>
+                <th>data utworzenia konta</th>
+                <th>Rola</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{$index +1}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.created_at | date : 'd - M - y'  }}</td>
+                <td>{{user.accounttype}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

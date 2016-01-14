@@ -8,8 +8,14 @@ var TaskSchema = new mongoose.Schema({
     desc: String,
     assigned_contact:  String,
     assigned_employee:  String,
+    comments: [
+        { created_at: {type: Date, default: Date.now},
+            user: String,
+            comment: String
+        }
+    ],
     status: { type: String,
-        default: 'nowe'
+        default: 'Nowe'
     }
 
 });

@@ -9,6 +9,7 @@ var UserSchema = new mongoose.Schema({
     name : String,
     surname: String,
     username:{type: String, lowercase: true, unique: true},
+    accounttype: {type:  String, required: true},
     hash: String,
     salt: String,
     created_at: { type: Date,
@@ -34,6 +35,7 @@ UserSchema.methods.generateJWT = function() {
     return jwt.sign({
         _id: this._id,
         username: this.username,
+        accounttype: this.accounttype,
         exp: parseInt(exp.getTime() / 1000),
     }, 'SECRET');
 };

@@ -1,0 +1,57 @@
+<div ng-controller="addContactCtrl">
+    <form class="form-horizontal" ng-submit="addContact()">
+        <div class="form-group">
+            <label for="inputCompanyName" class="col-sm-2 control-label">Nazwa firmy</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCompanyName" placeholder="Nazwa firmy" ng-model="companyName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">Imie</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder="Imie" ng-model="name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSurname" class="col-sm-2 control-label">Nazwisko</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputSurname" placeholder="Nazwisko" ng-model="surname">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAdress" class="col-sm-2 control-label">Adres</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputAdress" placeholder="adres" ng-model="adress">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPhone" class="col-sm-2 control-label">Telefon</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPhone" placeholder="telefon" ng-model="phone">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPersonalID" class="col-sm-2 control-label">Pesel</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPersonalID" placeholder="Pesel" ng-model="pesel">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputDesc" class="col-sm-2 control-label">opis</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3"  id="inputDesc" placeholder="opis" ng-model="desc"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Dodaj</button>
+            </div>
+        </div>
+    </form>
+    <H2 ng-show="showConfirmation" style="color: green" > Dane zostały poprawnie zapisane w bazie</H2>
+    <H2 ng-show="showFailure" style="color: red" > Coś poszło nie tak!</H2>
+</div>

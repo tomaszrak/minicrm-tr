@@ -1,0 +1,88 @@
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3>Zmiana statusu realizacji</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <select class="form-control" ng-model="status">
+                    <option>Nowe</option>
+                    <option>W realizacji</option>
+                    <option>Zakończone</option>
+                    <option>Zawieszone</option>
+                    <option>Anulowane</option>
+                </select>
+                Komentarz(opcjonalny):
+                <textarea class="form-control" rows="3" ng-model="comment"></textarea>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Anuluj</button>
+    </div>
+</script>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Filtrowanie zadań</h3>
+    </div>
+    <div class="panel-body">
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" ng-model="nowe" value="Nowe"> Nowe
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox2" ng-model="wRealizacji" value="W realizacji"> W realizacji
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" ng-model="zakonczone" value="Zakończone"> Zakończone
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox4" ng-model="zawieszone" value="Zawieszone"> Zawieszone
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox5" ng-model="anulowane" value="Anulowane"> Anulowane
+        </label>
+    </div>
+</div>
+<div class="panel panel-primary" ng-repeat="task in tasks"  ng-show="(nowe && task.status=='Nowe')||(wRealizacji &&  task.status=='W realizacji')||(zakonczone && task.status=='Zakończone')||(zawieszone && task.status=='Zawieszone') || (anulowane && task.status=='Anulowane')">
+    <div class="panel-heading">Zadanie
+
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle glyphicon glyphicon-cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            </button>
+            <ul class="dropdown-menu pull-left">
+                <li><a href="" ng-click="open(task._id)">Zmień status</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+       {{task.name}}
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">Data dodania:  {{task.created_at | date : 'd-M-y     HH:mm:ss'}}</li>
+        <li class="list-group-item">do kiedy należy zrealizować: {{task.time_limit | date : 'd-M-y' }}</li>
+        <li class="list-group-item">Opis: {{task.desc}}</li>
+        <li class="list-group-item">Przypisany kontakt: {{task.assigned_contact}}</li>
+        <li class="list-group-item">Przypisany pracownik: {{task.assigned_employee}}</li>
+        <li class="list-group-item">Status zadania: {{task.status}}</li>
+        <li class="list-group-item">Komentarze:
+            <div class="panel panel-default" ng-repeat="comment in task.comments">
+                <div class="panel-heading">{{comment.created_at | date : 'd-M-y     HH:mm:ss'}} przez {{comment.user}}</div>
+                <div class="panel-body">
+                    {{comment.comment}}
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+<div class="jumbotron" ng-show="tasks==''">
+    <h1>Aktualnie nie posiadasz przydzielonych zadań bądź sprzedaży!</h1>
+    <p>skontaktuj się ze swoim przełożonym</p>
+
+</div>
+

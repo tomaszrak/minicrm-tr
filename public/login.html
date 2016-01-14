@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="miniCRM">
+<head>
+    <meta charset="UTF-8">
+    <link href="/bower_components/bootstrap//dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/dashboard.css" rel="stylesheet">
+    <title></title>
+</head>
+<body ng-controller="AuthCtrl">
+
+<div class="page-header">
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div ng-show="error" class="alert alert-danger row">
+            <span>{{ error.message }}</span>
+        </div>
+
+        <form ng-submit="logIn()">
+            <h3>MiniCRM Logowanie</h3>
+
+            <div class="form-group">
+                <input type="text"
+                       class="form-control"
+                       placeholder="nazwa użytkownika"
+                       ng-model="user.username"></input>
+            </div>
+            <div class="form-group">
+                <input type="password"
+                       class="form-control"
+                       placeholder="hasło"
+                       ng-model="user.password"></input>
+            </div>
+            <button type="submit" class="btn btn-primary">Zaloguj</button>
+        </form>
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-ui-router.min.js"></script>
+<script src="/bower_components/ui-bootstrap-tpls.js"></script>
+<script src="/javascripts/app.js"></script>
+</body>
+</html>
+
+
+

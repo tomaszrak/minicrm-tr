@@ -1,0 +1,52 @@
+
+    <form class="form-horizontal" ng-submit="addTask()">
+        <div class="form-group">
+            <label for="inputTaskName" class="col-sm-2 control-label">Nazwa zadania</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTaskName" placeholder="Nazwa zadania" ng-model="taskName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputtimelimit" class="col-sm-2 control-label">termin realizacji</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="inputtimelimit"  ng-model="timeLimit">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputContact" class="col-sm-2 control-label">Przypisany kontakt</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="inputContact" ng-model="assignedContact">
+
+                    <option ng-repeat="contact in contacts">{{contact.company_name+ ' '+ contact.name + ' '+ contact.surname}}</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmpl" class="col-sm-2 control-label">przypisany pracownik</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="inputEmpl" ng-model="assignedEmpl">
+
+                    <option ng-repeat="user in users" >{{user.username}}</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputDesc" class="col-sm-2 control-label">Opis</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3"  id="inputDesc" placeholder="opis" ng-model="taskDesc"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Dodaj</button>
+            </div>
+        </div>
+    </form>
+    <H2 ng-show="showConfirmation" style="color: green" > Dane zostały poprawnie zapisane w bazie</H2>
+    <H2 ng-show="showFailure" style="color: red" > Coś poszło nie tak!</H2>
